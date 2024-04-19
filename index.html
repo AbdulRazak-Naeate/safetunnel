@@ -60,6 +60,21 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+        /* Media Query for Mobile */
+        @media (max-width: 600px) {
+            .header-wrapper {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
+            .header-wrapper img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            body {
+            padding: 10px;
+        }
+        }
     </style>
 </head>
 <body>
