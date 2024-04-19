@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion Request Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .header-wrapper {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+        }
+        .header-wrapper img {
+            height: 50px;
+            margin-left: 25%;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-wrapper">
+            <img src="safetunnel.jpg" alt="Safe Tunnel Logo">
+            <h1>Safe Tunnel User Privacy</h1>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Account Deletion Request Form</h1>
+        <form id="deletionForm">
+            <div>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" rows="4" required></textarea>
+            </div>
+            <input type="submit" value="Submit Request">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("deletionForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Collect form data
+            var formData = new FormData(this);
+
+            // Send form data via email (replace 'admin@example.com' with your admin email)
+            var adminEmail = "admin@example.com"; // Replace this with your admin email
+            var subject = "Account Deletion Request";
+            var emailBody = "";
+            formData.forEach(function(value, key) {
+                emailBody += key + ": " + value + "\n";
+            });
+            window.open("mailto:" + adminEmail + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(emailBody));
+
+            // Optionally, you can also send the form data to a server using AJAX
+            // Uncomment the following lines if you want to send data to a server
+            /*
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "your-server-endpoint-url");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(JSON.stringify(Object.fromEntries(formData)));
+            */
+
+            // Reset form after submission
+            this.reset();
+        });
+    </script>
+</body>
+</html>
