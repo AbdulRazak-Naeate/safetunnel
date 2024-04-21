@@ -60,9 +60,11 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
-        .span-text {
-            align-text:"center";
-            color:"darkgray"
+        span {
+            display: block;
+            text-align: center;
+            color: darkgray;
+            margin-bottom: 10px;
         }
         /* Media Query for Mobile */
         @media (max-width: 600px) {
@@ -90,7 +92,7 @@
     </header>
     <div class="container">
         <h1>Account Deletion Request Form</h1>
-         <span class='span-text'>Please enter email used in registering on SafeTunnel vpn App</span>
+        <span>Please enter email used in registering on SafeTunnel VPN App</span>
         <form id="deletionForm">
             <div>
                 <label for="email">Your Email:</label>
